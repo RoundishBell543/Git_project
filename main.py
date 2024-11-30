@@ -1,5 +1,6 @@
 import sys
 import io
+import random
 from PyQt6 import uic
 from PyQt6.QtGui import QPainter, QColor
 from PyQt6.QtWidgets import  QApplication, QMainWindow
@@ -60,12 +61,10 @@ class MyWidget(QMainWindow):
         self.do_paint = True
         self.update()
     def draw_flag(self, qp):
-        qp.setBrush(QColor(255, 0, 0))
-        qp.drawRect(30, 30, 120, 30)
-        qp.setBrush(QColor(0, 255, 0))
-        qp.drawRect(30, 60, 120, 30)
-        qp.setBrush(QColor(0, 0, 255))
-        qp.drawRect(30, 90, 120, 30)
+        num = random.randrange(1, 400)
+        qp.setBrush(QColor(255, 255, 0))
+        qp.drawEllipse(300, 100, num, num)
+
 
 def except_hook(cls, exception, traceback):
     sys.__excepthook__(cls, exception, traceback)
